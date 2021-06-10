@@ -12,6 +12,7 @@ import random as rd
 #import matplotlib.pyplot as plt
 import pandas as pd
 import time
+import readline
 
 #This class is basically a niche tsitu's CRE
 class MiceData:
@@ -149,40 +150,65 @@ class VRift:
         #Bunch of inputs for easy user input
         
         #Integer inputs
-        print("Trap Power?")
-        self.trapPower=int(input())
-        print("Trap Luck?")
-        self.trapLuck=int(input())
-        print("Current Step?")
-        self.currentStep=int(input())
+        
+        self.trapPower=""
+        while not isinstance(self.trapPower, int):
+            print("Enter Trap Power (Integer Only):")
+            self.trapPower=int(''.join(x for x in input() if x.isdigit()))
+        
+        self.trapLuck=""
+        while not isinstance(self.trapLuck, int):
+            print("Enter Trap Luck (Integer Only):")
+            self.trapLuck=int(''.join(x for x in input() if x.isdigit()))
+
+        self.currentStep=""
+        while not isinstance(self.currentStep, int):
+            print("Enter Current Step (Integer Only):")
+            self.currentStep=int(''.join(x for x in input() if x.isdigit()))
+
+        #self.currentFloor=""
+        #while not isinstance(self.currentFloor, int):
+        #    print("Enter Current Floor (Integer Only):")
+        #    self.currentFloor=int(''.join(x for x in input() if x.isdigit()))
+
         #print("Current Floor")
         #self.currentFloor=int(input())
-        print("Speed?")
-        self.Speed=int(input())
-        print("Sync?")
-        self.Sync=int(input())
-        print("Siphon?")
-        self.Siphon=int(input())
+        
+        self.Speed=""
+        while not isinstance(self.Speed, int):
+            print("Enter Raw Speed (Integer Only):")
+            self.Speed=int(''.join(x for x in input() if x.isdigit()))
+
+        self.Sync=""
+        while not isinstance(self.Sync, int):
+            print("Enter Raw Sync (Integer Only):")
+            self.Sync=int(''.join(x for x in input() if x.isdigit()))
+
+        self.Siphon=""
+        while not isinstance(self.Siphon, int):
+            print("Enter Raw Siphon (Integer Only):")
+            self.Siphon=int(''.join(x for x in input() if x.isdigit()))
         
         #Boolean inputs
-        print("CF?")
+        print("Use Champion's Fire? (1 - Yes, 0 - No):")
         self.CF=bool(int(input()))
         if(self.CF==1):
             self.Speed+=1
             
-        print("Super Siphon?")
+        print("Enable Super Siphon? (1 - Yes, 0 - No):")
         superSiph=bool(int(input()))
         if(superSiph==1):
             self.Siphon=self.Siphon*2
         
-        print("String Stepping?")
+        print("Enable String Stepping? (1 - Yes, 0 - No):")
         self.StringStepping=bool(int(input()))
         
-        print("Ultimate Umbra?")
+        print("Enable Ultimate Umbra? (1 - Yes, 0 - No):")
         self.UU=bool(int(input()))
         
-        print("Ultimate Charm Eclipse?")
+        print("Ultimate Charm Eclipse? (1 - Yes, 0 - No):")
         self.UCEclipse=bool(int(input()))
+        
         #For verbosity
         print("Detail?")
         self.Detail=bool(int(input()))
