@@ -210,8 +210,9 @@ class VRift:
         self.UCEclipse=bool(int(input()))
         
         #For verbosity
-        print("Detail?")
-        self.Detail=bool(int(input()))
+        #print("Detail?")
+        #self.Detail=bool(int(input()))
+        self.Detail = False
         
         self.TACount=0
         self.BulwarkCount=0
